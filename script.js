@@ -9,40 +9,55 @@
  ** 4. Tudo que você escrever no primeiro input irá pra primeira div,
  **     no segundo input irá pra segunda div, e o mesmo pro terceiro input
  */
-const inp = document.getElementById("inp");
-const primeiro = document.getElementById("primeiro");
-const btn = document.getElementById("btn");
-const inp1 = document.getElementById("inp1");
-const segundo = document.getElementById("segundo");
-const btn1 = document.getElementById("btn1");
 
+const inputObjeto1 = {
+  campoDeTexto1: document.getElementById("input1"),
+  listaDeItensHtml1: document.getElementById("primeiro"),
+  listaDeItens1: [],
+  botaoAdicionar1: document.getElementById("btn1"),
+  botaoLimpar1: document.getElementById("btn_limpar1"),
+};
+
+inputObjeto1.botaoAdicionar1.addEventListener("click", () => {
+  if (inputObjeto1.campoDeTexto1 !== "") {
+    inputObjeto1.listaDeItens1.push(` ${inputObjeto1.campoDeTexto1.value}`);
+    inputObjeto1.listaDeItensHtml1.innerText = inputObjeto1.listaDeItens1;
+  }
+  inputObjeto1.campoDeTexto1.value = "";
+});
+
+inputObjeto1.botaoLimpar1.addEventListener("click", () => {
+  inputObjeto1.listaDeItens1 = [];
+  inputObjeto1.listaDeItensHtml1.innerHTML = inputObjeto1.listaDeItens1;
+});
+
+const inputObjeto2 = {
+  campoDeTexto2: document.getElementById("input2"),
+  listaDeItensHtml2: document.getElementById("segundo"),
+  listaDeItens2: [],
+  botaoAdicionar2: document.getElementById("btn2"),
+  botaoLimpar2: document.getElementById("btn_limpar2"),
+};
+inputObjeto2.botaoAdicionar2.addEventListener("click", () => {
+  if (inputObjeto2.campoDeTexto2 !== "") {
+    inputObjeto2.listaDeItens2.push(` ${inputObjeto2.campoDeTexto2.value}`);
+    inputObjeto2.listaDeItensHtml2.innerText = inputObjeto2.listaDeItens2;
+  }
+  inputObjeto2.campoDeTexto2.value = "";
+});
+
+inputObjeto2.botaoLimpar2.addEventListener("click", () => {
+  inputObjeto2.listaDeItens2 = [];
+  inputObjeto2.listaDeItensHtml2.innerText = inputObjeto2.listaDeItens2;
+});
 
 const inputObjeto3 = {
-  campoDeTexto: document.getElementById("inp2"),
+  campoDeTexto: document.getElementById("input3"),
   listaDeItensHtml: document.getElementById("terceiro"),
   listaDeItens: [],
-  botaoAdicionar: document.getElementById("btn2"),
-  botaoLimpar: document.getElementById("btn_limpar")
-}
-
-let ar = [];
-btn.addEventListener("click", () => {
-  if (inp.value) {
-    ar.push(`  ${inp.value}`);
-    primeiro.textContent = ar;
-  }
-  inp.value = "";
-});
-
-let ar1 = [];
-btn1.addEventListener("click", () => {
-  if (inp1.value) {
-    ar1.push(`  ${inp1.value}`);
-    segundo.textContent = ar1;
-  }
-  inp1.value = "";
-});
-
+  botaoAdicionar: document.getElementById("btn3"),
+  botaoLimpar: document.getElementById("btn_limpar3"),
+};
 
 inputObjeto3.botaoAdicionar.addEventListener("click", () => {
   if (inputObjeto3.campoDeTexto !== "") {
